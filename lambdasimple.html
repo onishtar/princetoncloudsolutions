@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+      function myFunction() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("my-demo").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "https://0wbeq4dooe.execute-api.us-east-1.amazonaws.com/prod/LambdaHelloExample", true);
+        xhttp.send();
+      }
+    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princeton Cloud Solutions - AWS Lambda Simple - Server Response</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float: left;
+  width: 20%;
+}
+.menuitem {
+  padding: 8px;
+  margin-top: 7px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.right {
+  background-color: lightblue;
+  float: left;
+  width: 20%;
+  padding: 10px 15px;
+  margin-top: 7px;
+}
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body style="font-family:Verdana;">
+
+<div style="background-color:#f1f1f1;padding:15px;">
+  <h1>Princeton Cloud Solutions - AWS Lambda Simple - Server Response</h1>
+</div>
+
+<div style="overflow:auto">
+  <div class="menu">
+  	<div class="menuitem">  </div>
+  </div>
+	
+	<div style="text-align:center" class="main">
+		<br>
+		<br>
+		<br>
+		<br>
+    <h1><span id="my-demo">Welcome AWSEssentials Class of May 14th, 2018</span></h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button onclick="myFunction()">Click me to invoke python Lambda function and get result back</button>
+    <br>
+    <br>
+    <!--<img src="https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg"> -->
+   		<br>
+   		<br>
+   		<br>
+   		<br>
+	<h2><a href="https://s3.amazonaws.com/princetoncloudsolutions.com/index.html">Back to Main</a></h2>
+	</div>
+</div>
+</body>
+</html>
