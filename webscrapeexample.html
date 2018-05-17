@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>webscrapesimple</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>webscrapeexample</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,17 +11775,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Web-Scrape-example-using-http://princetoncloudsolutions.com/">Web Scrape example using <a href="http://princetoncloudsolutions.com/">http://princetoncloudsolutions.com/</a><a class="anchor-link" href="#Web-Scrape-example-using-http://princetoncloudsolutions.com/">&#182;</a></h1><h2 id="first-download-and-install-anaconda">first download and install anaconda<a class="anchor-link" href="#first-download-and-install-anaconda">&#182;</a></h2><h2 id="conda-install-beautifulsoup4">conda install beautifulsoup4<a class="anchor-link" href="#conda-install-beautifulsoup4">&#182;</a></h2><h2 id="conda-install-requests">conda install requests<a class="anchor-link" href="#conda-install-requests">&#182;</a></h2><h2 id="conda-install-lxml">conda install lxml<a class="anchor-link" href="#conda-install-lxml">&#182;</a></h2>
+<h1 id="Web-Scrape-example-using-https://www.thegoldbugs.com/">Web Scrape example using <a href="https://www.thegoldbugs.com/">https://www.thegoldbugs.com/</a><a class="anchor-link" href="#Web-Scrape-example-using-https://www.thegoldbugs.com/">&#182;</a></h1><h2 id="first-download-and-install-anaconda">first download and install anaconda<a class="anchor-link" href="#first-download-and-install-anaconda">&#182;</a></h2><h2 id="conda-install-beautifulsoup4">conda install beautifulsoup4<a class="anchor-link" href="#conda-install-beautifulsoup4">&#182;</a></h2><h2 id="conda-install-requests">conda install requests<a class="anchor-link" href="#conda-install-requests">&#182;</a></h2><h2 id="conda-install-lxml">conda install lxml<a class="anchor-link" href="#conda-install-lxml">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://princetoncloudsolutions.com&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">bs4</span>
 </pre></div>
 
 </div>
@@ -11795,76 +11794,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[14]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>requests.models.Response</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;\n&lt;style&gt;\n* {\n  box-sizing: border-box;\n}\n.menu {\n  float: left;\n  width: 20%;\n}\n.menuitem {\n  padding: 8px;\n  margin-top: 7px;\n  border-bottom: 1px solid #f1f1f1;\n}\n.main {\n  float: left;\n  width: 60%;\n  padding: 0 20px;\n  overflow: hidden;\n}\n.right {\n  background-color: lightblue;\n  float: left;\n  width: 20%;\n  padding: 10px 15px;\n  margin-top: 7px;\n}\n\n@media only screen and (max-width:800px) {\n  /* For tablets: */\n  .main {\n    width: 80%;\n    padding: 0;\n  }\n  .right {\n    width: 100%;\n  }\n}\n@media only screen and (max-width:500px) {\n  /* For mobile phones: */\n  .menu, .main, .right {\n    width: 100%;\n  }\n}\n&lt;/style&gt;\n&lt;/head&gt;\n&lt;body style=&#34;font-family:Verdana;&#34;&gt;\n\n&lt;div style=&#34;background-color:#f1f1f1;padding:15px;&#34;&gt;\n  &lt;h1&gt;Princeton Cloud Solutions&lt;/h1&gt;\n&lt;/div&gt;\n\n&lt;div style=&#34;overflow:auto&#34;&gt;\n  &lt;div class=&#34;menu&#34;&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/mission.html&#34;&gt;Mission&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/vision.html&#34;&gt;Vision&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/goals.html&#34;&gt;Goals&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/strategy.html&#34;&gt;Strategy&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;http://princetoncloudsolutions.com/lambdasimple.html&#34;&gt;AWS Lambda Simple - Server Response&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;http://princetoncloudsolutions.com/lambdapolly.html&#34;&gt;AWS Lambda Polly - ML, S3, Dynamodb usage&lt;/a&gt;&lt;/div&gt;\n    &lt;div class=&#34;menuitem&#34;&gt;&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/contact.html&#34;&gt;Contact&lt;/a&gt;&lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=&#34;main&#34;&gt;\n    &lt;h2&gt;Business Strategy, Data Science and Agile Technology Solutions&lt;/h2&gt;\n    &lt;p&gt;We are business strategy coach, data scientists and technologist that can help your business.&lt;/p&gt;\n   &lt;!-- &lt;img src=&#34;Business-Strategy.jpg&#34; style=&#34;width:100%&#34;&gt; --&gt;\n    &lt;img src=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg&#34; style=&#34;width:100%&#34;&gt;\n  &lt;/div&gt;\n\n  &lt;div class=&#34;right&#34;&gt;\n    &lt;h2&gt;What?&lt;/h2&gt;\n    &lt;p&gt;We provide advice, demos and solution to grow your business&lt;/p&gt;\n    &lt;h2&gt;Where?&lt;/h2&gt;\n    &lt;p&gt;We are based in Princeton, New Jersey&lt;/p&gt;\n    &lt;h2&gt;Price?&lt;/h2&gt;\n    &lt;p&gt;The initial consultation is free!&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div style=&#34;background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;&#34;&gt;To grow a business we can help you define a strategy and support it with technology. &lt;/div&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">bs4</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.thegoldbugs.com/blog&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11874,7 +11807,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
@@ -11887,10 +11820,36 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">blog</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;pre&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">blog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11903,119 +11862,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>bs4.BeautifulSoup</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[21]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;h1&gt;Princeton Cloud Solutions&lt;/h1&gt;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h1_tag_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h1_tag_list</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[23]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;h1&gt;Princeton Cloud Solutions&lt;/h1&gt;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">h1_tag_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[25]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -12032,10 +11879,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h1_tag_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">blog_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">blog_text</span>
 </pre></div>
 
 </div>
@@ -12048,13 +11908,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[26]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Princeton Cloud Solutions&#39;</pre>
+<pre>&#39;-----hdipiscing rhoncus massaphasellus magnis delenit no, ligula tempor massapellentesque tortorcurabitur enim ex leopraesent.-----tectus urnamorbi telluspraesent nisl, maecenas aptent conubia.-----tondonec aliquam duo fames nullam minim accumsannulla, massaphasellus quisaenean sempermorbi conubia lectus.-----piaminteger, elit facilisis vestibulumnulla aliquet egestasmauris quisaenean.-----sabore a ut iaculis, montes tempor dapibusnam est mi nisised.-----:um doming aliquammauris congue class sadipscing, risus nisi quammaecenas felissed.-----/ation vestibulum accusam nequeetiam feugiat, rutrum aliquammauris ultricies varius dis.-----/urpis nisl duis interdumdonec himenaeos, elitr tincidunt semper molestie bibendumin veniam.-----dnterdumdonec malesuada cubilia.-----rinulla libero congue.-----iictum luptatum eum, duis eos esse consequatduis tellus enim nullasuspendisse.-----veugait hac ut potenti euismod.-----eiam fermentumfusce aliquammauris leopraesent erat, purusvestibulum aliquip ac quam inceptos delenit morbi lorem vero egestasmauris.-----.apibusnam facilisisproin donec laoreetphasellus quammaecenas.-----giaminteger platea nullamauris.-----oempermorbi enimsed soluta arcumorbi.-----oraesent quisaenean tortor varius dictumst cras, aaenean ullamcorper nullam lobortis fermentum possim minulla congue ipsum.-----gonsequatduis possim massa cras te, facilisinam enim lobortisetiam.-----llitduis tempor feugiat labore wisi nonumy, consectetur pulvinar risusdonec tortor.-----eeugait liber enimaliquam.-----.ristique possim.-----canctus magnainteger elitr, ea dictumst sollicitudin pharetra malesuada ut.-----oacer eu duimauris mattis ex dictum, lobortisetiam liberoduis fames nonumy pellentesque senectus massaphasellus.-----migula esse, nostra nostrud egestasmauris feliscras habitant accusam suscipit.-----/nceptos posuere nonummy vestibulumnulla duimauris laoreetphasellus ipsumcurabitur, qui nondonec ornare sed phasellus mattis.-----onim ullamcorper lobortisetiam leo.-----pihil iriure consequat elitr nibh.-----eodales faucibus minulla.-----napibusnam bibendumin ac, facilisisproin eu aaenean purusvestibulum possim risus lacusut laoreet.-----?rcumorbi euismod tristique aptent malesuadanullam quisque, ultriciespellentesque accusam convallis mi platea duo.-----iation rutrum feugiat magnapraesent felissed.-----dit accusam, dapibus vulputate lacus montes consecteturpraesent eirmod lectus.-----=celerisque dis aliquet elitnunc.-----1ortorvestibulum autem auctor blandit aliquam sanctus.-----kestibulumnulla orci dis, purusvestibulum elementum dui laoreet.-----4ursus exerci quisaenean urna.-----uhoncusmaecenas mattis zzril nequeetiam soluta id, class clita cum faucibusvestibulum lacus molestie veniam telluspraesent mus.-----Uoluptua esse nonumy suspendisse consetetur, eos senectus zzril gravida nascetur lacus volutpat.-----9igula in sempermorbi, urnamorbi felis qui aliquip vehicula.-----lliquyam nobis esse sociosqu, eleifend felissed voluptua pulvinarvestibulum per.-----6ociosqu vehicula elitduis adipiscing et, faucibusvestibulum facilisis pharetra.-----Garius imperdietaliquam aliquet nobis justocras proin, mipellentesque litora urna sem possim.-----1ubergren class cursus ex takimata mauris, suscipit metus nisl rebum blandit labore.-----9ebum mazim.-----Qagittis a turpis laoreet erosin takimata, ac cum possim eu facilisicurabitur massa elitduis taciti.-----4ltricies consequatduis purusvestibulum primis, nondonec felis ligula dapibus blandit metusdonec.-----hagittis risus velit no nonumy, erat pellentesque sed leopraesent egestasmauris.-----Permentum sollicitudin est dolores.-----wuptatum quam.-----maucibus natoque.-----jxerci donec aliquyam purus.-----Hongue condimentum minulla.-----sempermorbi aliquip minulla, vestibulum vero ligula elitr feugait.-----Nnterdumdonec aliquammauris habitant.-----Luammaecenas risus quis auctor rebum, dapibusnam per id feliscras risusdonec eu.-----del urna dolor sociis metusdonec, condimentum elitvivamus tempus volutpat vestibulum.-----Puisque elitvivamus zzril.-----vurae mauris lacusnulla sodales, ridiculus iusto aaenean eos possim urna.-----nuis nisl justocras porta facilisisat.-----Kollicitudin pulvinarvestibulum diaminteger, aliquammauris at nostrud viverra egestas.-----sincidunt mollis placerat nunc massaphasellus mauris.-----7itae iaculis conguenulla ametduis purusvestibulum.-----Yidiculus tortorvestibulum quisaenean.-----jehicula wisi bibendumfusce, antesuspendisse minim facilisi at aliquam molestie feliscras invidunt.-----Naoreetphasellus antesuspendisse turpis, tempor ridiculus blandit vivamus ipsum pulvinar.-----oeo temporsuspendisse minulla, laoreet consectetuer ligula vestibulum vestibulumnulla.-----xpsum sanctus sociosqu, clita curae risusdonec rhoncusmaecenas facer morbi veniam.-----Jollicitudin sed facilisisat egestas mi, duis eros quam venenatis posuere takimata nibh.-----Lltrices nullamauris delenit magnainteger parturient, vestibulum rebum placerat ultricies soluta consetetur in orci aliquet.-----kx aliquammauris himenaeos sagittis.-----Tortor laoreet conubia temporsuspendisse consecteturpraesent.-----5ullasuspendisse platea urna felis nonumy risusdonec.-----Oatoque ametduis ultriciespellentesque, eratproin orci ipsum elitr.-----yaoreet lobortisetiam sapien viverra, lorem labore fringilla sempermorbi dapibus.-----4asd maurisaenean ipsum sempermorbi muspellentesque est, consecteturpraesent ultricies fringilla massa.-----uassapellentesque duo erat fringilla scelerisque luctus tortorcurabitur mauris, justocras auctormauris inceptos bibendum pharetra est eos.-----4acilisinam turpis tempus mollis, diaminteger magnainteger hendrerit.&#39;</pre>
 </div>
 
 </div>
@@ -12068,7 +11928,35 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">h1_tag_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getText</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">blog_lines</span> <span class="o">=</span> <span class="n">blog_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-----&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">blog_lines</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span>
 </pre></div>
 
 </div>
@@ -12081,13 +11969,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[30]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>str</pre>
+<pre>&#39;https://drive.google.com/open?id=1k4uU9l6G19Q4hPwmjHsNLdPvnKs7YjNoxJLkT5Oy4u4&#39;</pre>
 </div>
 
 </div>
@@ -12095,392 +11983,6 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.menuitem a&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[34]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/mission.html&#34;&gt;Mission&lt;/a&gt;,
- &lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/vision.html&#34;&gt;Vision&lt;/a&gt;,
- &lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/goals.html&#34;&gt;Goals&lt;/a&gt;,
- &lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/strategy.html&#34;&gt;Strategy&lt;/a&gt;,
- &lt;a href=&#34;http://princetoncloudsolutions.com/lambdasimple.html&#34;&gt;AWS Lambda Simple - Server Response&lt;/a&gt;,
- &lt;a href=&#34;http://princetoncloudsolutions.com/lambdapolly.html&#34;&gt;AWS Lambda Polly - ML, S3, Dynamodb usage&lt;/a&gt;,
- &lt;a href=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/contact.html&#34;&gt;Contact&lt;/a&gt;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.menuitem a&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Mission
-Vision
-Goals
-Strategy
-AWS Lambda Simple - Server Response
-AWS Lambda Polly - ML, S3, Dynamodb usage
-Contact
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;img src=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg&#34; style=&#34;width:100%&#34;/&gt;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_info</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">image_info</span><span class="p">)</span>
-<span class="n">image_info</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[44]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;img src=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg&#34; style=&#34;width:100%&#34;/&gt;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_info_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_info_tag</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[47]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;img src=&#34;https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg&#34; style=&#34;width:100%&#34;/&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_src</span> <span class="o">=</span> <span class="n">image_info_tag</span><span class="p">[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span>
-<span class="n">image_src</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[59]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_file</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_src</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_file</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[50]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;Response [200]&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#image_file.content</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;strategy_pic.jpg&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_file</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[54]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>167168</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &lt;img src=&#39;stratgegy_pic.jpg&#39;&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='strategy_pic.jpg'></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='https://s3.amazonaws.com/princetoncloudsolutions.com/Business-Strategy.jpg'></p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
